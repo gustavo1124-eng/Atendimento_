@@ -1,5 +1,8 @@
 body{
-    background-image: url("/imgs/fundopainel.jpg");
+    background-image: url("/imgs/fundopainel2.png");
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-repeat: no-repeat; /* Impede a repetição */
+    background-position: center center;
 }
 #caixinha{
     background-color: rgb(162, 162, 169);
@@ -36,9 +39,6 @@ display: flex;
 #p3-b{
 font-size: 50px;
 }
-#caixa2{
-font-size: 30px;
-}
 #re{
     font-size: 40px;
     width: 180px;
@@ -60,6 +60,7 @@ font-size: 30px;
     background-color: rgb(231, 231, 238);
     border-radius: 8px black;
     width: 500px;
+    height: 310px;
     display:grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -67,25 +68,30 @@ font-size: 30px;
     border-right: solid;
 }
 #caixinha2{
-    background-color:rgb(255, 255, 255);
+    background: radial-gradient(1200px 400px at -10% -10%, #15213a8c 0%, rgba(27, 64, 143, 0.681) 40%), 
+                  radial-gradient(800px 300px at 120% -10%, rgba(34, 71, 151, 0.25) 0%, rgba(17, 24, 39, 0.274) 45%),
+                  linear-gradient(180deg, #0b122049, #1118274d 40%);
     align-items: center;
-    border: solid;
-    border: black 3px solid;
     padding: 9px; 
     width:400px;
+    height: 200px;
+      border: 2px white solid;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.675); /* Sombra mais forte */
+       /* Garante que os cards fiquem acima do z-index: -1 */
     align-content:right;
+    border-bottom: 1px black solid var(--border);
 }
-#caixinha3{
-    background-color:rgb(255, 255, 255);
-    align-items: center;
-    border: solid;
-    border-color: black 3px solid;
-    padding: 6px; 
-    width:400px;
-    align-content:right;
+#dentrocaixinha2{
+background: linear-gradient(180deg, #6c84b4, #0c1426);
+border-radius: 4px;
+position: relative;
 }
+
 #p2{
-    font-size: 50px;
+    font-size: 36px;
+    justify-self: center;
 
 }
 #emoji li{
@@ -117,31 +123,6 @@ font-size: 30px;
 #lista1{
     border-color: black 4px solid;
     font-size:30px;
-}
-#ola{
-    border-radius: 8px black;
-}
-#Ola{
-    translate: -607.2px;
-    display: flex;
-    width: 226%;
-    background-color: gray;
-    height: 40px;
-    align-items: bottom;
-    font-size: 30px;
-    animation-name: slideLeft; /* Name of your keyframe animation */
-      animation-duration: 385s; /* How long the animation takes */
-      animation-timing-function: ease; /* Speed curve of the animation */
-      animation-iteration-count: infinite; /* How many times it plays */
-      animation-direction: normal; 
-}
-@keyframes slideLeft {
-  from {
-    transform: translateX(600px);
-  }
-  to {
-    transform: translateX(-738.2px);
-  }
 }
 #avaliar{
     background-color:rgb(162, 96, 46);

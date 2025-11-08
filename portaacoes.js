@@ -1,6 +1,6 @@
 var lista1 = document.getElementById("lista1");
-var caixa2 = document.getElementById("caixa2");
 var lista = document.getElementById("lista");
+var li0 = document.getElementById('senhacaixa1');
 var numale = (Math.random() * 50000) + 1000;
 document.getElementById("re").addEventListener('click', (event) =>{
 const op = Math.random();
@@ -14,38 +14,31 @@ if(lista.childElementCount > 3){
     stop();
 } 
 
-if(!lista1.childElementCount){
-setTimeout(function(){colocarsenha()}, 6000);
-apagar1();
-} 
-async function caixa1proxsenha(){
-    return new Promise(resolve => setTimeout(resolve, numale));
-  }
-if(apagar1() == true){
-    caixa1proxsenha(numale).then(() =>{
-    var li2 =document.createElement('li');
-    var text1 = document.createTextNode(lista.children[0].textContent);
-    li2.appendChild(text1);
-    lista1.appendChild(li2);
+
+function senhacaixa(){
+return new Promise(resolve => {
+        setTimeout(function(){
+            colocarsenha(); 
+            resolve();
+            setTimeout(function(){pronto()}, numale2);
+        }, 6000);
     });
 }
-if(lista1.hasChildNodes()){
-   setTimeout(function(){ colocarsenha1()}, 6000);
+function removerdafila(){
+    setTimeout(function(){apagar()}, numale);
+    lista.removeChild(lista.children[0]);
 }
+senhacaixa().then(removerdafila);
+
 var numale1 = Math.floor(Math.random() * 60000);
 var numale2 = numale + numale1;
-setTimeout(function(){pronto()}, numale2);
-
-
 
 //onde os números aleatórios são colocados
-var textli1 = document.createTextNode(lista.children[0].textContent);
-var textli2 = document.createTextNode(lista.children[1].textContent);
 setTimeout(function(){avaliar()}, numale + 4000);
 var receber = document.getElementById("recebimentos");
 function pronto(){ //problema de puxar os elementos do 'senharand', deve só puxar os elementos da lista1 e caixa2
 const senpeg1 = document.createElement('li');
-var op5 = textli1.textContent;
+var op5 = op1;
 const espera = document.createTextNode(op5);
 senpeg1.appendChild(espera);
 receber.appendChild(senpeg1);
@@ -59,7 +52,6 @@ receber.style="border-bottom:3px";
     var dislike = 'imgs/naogostou.png';
     imgsrc.setAttribute('src', dislike);
     imgsrc.style.width="50px";
-    var ran = document.getElementById("lista").innerHTML;
     var mensagem = "Usuario: " + op1;    
     document.getElementById("nota_p").textContent = mensagem;
     var nao = 0;
@@ -69,7 +61,6 @@ receber.style="border-bottom:3px";
     var normal = 'imgs/maisoumenos.png';
     imgsrc.setAttribute('src', normal);
     imgsrc.style.width="50px";
-    var ran = document.getElementById("lista").innerHTML;
     var mensagem1 = "Usuario: " + op1;    
     document.getElementById("nota_p").textContent = mensagem1;
     var ok = 0;
@@ -89,37 +80,16 @@ receber.style="border-bottom:3px";
                           document.getElementById("nota_p").style.display="none";
     },2000);
 }
-function colocarsenha1(){
-    const li1 = document.createElement('li');
-    li1.appendChild(textli2);
-    caixa2.appendChild(li1);
-}
 function colocarsenha(){
-   var li0 = document.createElement('li');
-    li0.appendChild(textli1);
-    lista1.appendChild(li0);
-    if(lista1.childElementCount > 1){
-    limitarchildren1();
-    }
-    lista.removeChild(lista.firstElementChild); 
+    var p7 = lista.firstElementChild.textContent;
+    li0.textContent = p7;
 }
 })
-function limitarchildren(){
- while(lista1.lastChild){
- lista1.remove(lista1.lastChild);
- }
-}
-function limitarchildren1(){
- lista1.lastElementChild.style.display="none";
-}
 
 function stop(){
     document.getElementById("re").disabled = true;
 }
-
-            function apagar1(){
-                setTimeout(function(){apagar()}, numale);}
                 function apagar(){
-                while (lista1.lastChild){
-                lista1.removeChild(lista1.lastElementChild);}}
-            
+                let voltaraonormal = "------";
+                li0.textContent = voltaraonormal;}
+
