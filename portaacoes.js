@@ -26,6 +26,7 @@ return new Promise(resolve => {
 }
 function removerdafila(){
     setTimeout(function(){apagar()}, numale);
+    setTimeout(function(){avaliar()}, numale + 4000);
     lista.removeChild(lista.children[0]);
 }
 senhacaixa().then(removerdafila);
@@ -34,12 +35,10 @@ var numale1 = Math.floor(Math.random() * 60000);
 var numale2 = numale + numale1;
 
 //onde os números aleatórios são colocados
-setTimeout(function(){avaliar()}, numale + 4000);
 var receber = document.getElementById("recebimentos");
 function pronto(){ //problema de puxar os elementos do 'senharand', deve só puxar os elementos da lista1 e caixa2
 const senpeg1 = document.createElement('li');
-var op5 = op1;
-const espera = document.createTextNode(op5);
+const espera = document.createTextNode(op1);
 senpeg1.appendChild(espera);
 receber.appendChild(senpeg1);
 receber.style="font-size:70px";
@@ -51,7 +50,7 @@ receber.style="border-bottom:3px";
     if(emojis_grade == 0){
     var dislike = 'imgs/naogostou.png';
     imgsrc.setAttribute('src', dislike);
-    imgsrc.style.width="50px";
+    imgsrc.style.width="40px";
     var mensagem = "Usuario: " + op1;    
     document.getElementById("nota_p").textContent = mensagem;
     var nao = 0;
@@ -60,7 +59,7 @@ receber.style="border-bottom:3px";
     } else if(emojis_grade == 1){
     var normal = 'imgs/maisoumenos.png';
     imgsrc.setAttribute('src', normal);
-    imgsrc.style.width="50px";
+    imgsrc.style.width="40px";
     var mensagem1 = "Usuario: " + op1;    
     document.getElementById("nota_p").textContent = mensagem1;
     var ok = 0;
@@ -69,15 +68,16 @@ receber.style="border-bottom:3px";
     } else if(emojis_grade == 2){
     var like = '/imgs/gostou.png';
     imgsrc.setAttribute('src', like);
-    imgsrc.style.width="50px";
+    imgsrc.style.width="40px";
      var mensagem2 = "Usuario: " + op1;    
     document.getElementById('nota_p').textContent = mensagem2;
     var sim = 0;
     sim += 1;
     document.getElementById("upvote").innerHTML = sim;
     }
-    setTimeout(function(){imgsrc.style.display="none";
-                          document.getElementById("nota_p").style.display="none";
+    setTimeout(function(){
+        document.getElementById("nota_p").textContent = "";
+        imgsrc.setAttribute('src', '');
     },2000);
 }
 function colocarsenha(){
