@@ -9,11 +9,13 @@ document.getElementById("senharand").textContent = op1;
 const senpeg = document.createElement('li');
 const textli = document.createTextNode(op1);
 senpeg.appendChild(textli);
-lista.appendChild(senpeg);  
-if(lista.childElementCount > 3){
-    stop();
-} 
+lista.appendChild(senpeg);
 
+// Mantém no máximo 4 senhas na lista espera
+while (lista.childElementCount > 4) {
+    lista.removeChild(lista.firstElementChild);
+}
+// removi limite de senha para gerar mais alem de 4
 if(!lista1.childElementCount){
 setTimeout(function(){colocarsenha()}, 6000);
 apagar1();
@@ -122,4 +124,3 @@ function stop(){
                 function apagar(){
                 while (lista1.lastChild){
                 lista1.removeChild(lista1.lastElementChild);}}
-            
